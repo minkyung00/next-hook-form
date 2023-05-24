@@ -17,11 +17,16 @@ export default function Demo() {
     <>
       <h1>{isValid ? "✅ Valid" : "❌ Not Valid"}</h1>
       <form onSubmit={handleSubmit(submitHandler)}>
-        <Controller
+        {/* <Controller
           name="example"
           control={control}
-          rules={{ required: true }}
+          rules={{ required: "답변을 작성해주세요!" }}
           render={({ field }) => <Input {...field} />}
+        /> */}
+        <Input
+          name="example"
+          control={control}
+          rules={{ required: "답변을 작성해주세요!" }}
         />
         {errors.example && <p role="alert">{errors.example.message}</p>}
         <button>Submit</button>
